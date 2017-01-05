@@ -1,4 +1,4 @@
-package bar.services;
+package restaurant.services;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,8 +8,9 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
-import bar.dao.OrderDAO;
-import bar.model.DateContainer;
+
+import restaurant.dao.OrderDAO;
+import restaurant.model.DateContainer;
 
 
 @Stateless

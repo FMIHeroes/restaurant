@@ -1,4 +1,4 @@
-package bar.services;
+package restaurant.services;
 
 import java.net.HttpURLConnection;
 
@@ -11,9 +11,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import bar.dao.UserDAO;
-import bar.model.Role;
-import bar.model.User;
+import restaurant.dao.UserDAO;
+import restaurant.model.Role;
+import restaurant.model.User;
 
 @Stateless
 @Path("user")

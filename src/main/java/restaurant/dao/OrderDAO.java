@@ -1,4 +1,4 @@
-package bar.dao;
+package restaurant.dao;
 
 import java.util.Collection;
 import java.util.Date;
@@ -12,9 +12,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import bar.model.Order;
-import bar.model.Status;
-import bar.model.User;
+import restaurant.model.Order;
+import restaurant.model.Status;
+import restaurant.model.User;
 
 @Singleton
 public class OrderDAO {

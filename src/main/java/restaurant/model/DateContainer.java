@@ -1,4 +1,4 @@
-package bar.model;
+package restaurant.model;
 
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;

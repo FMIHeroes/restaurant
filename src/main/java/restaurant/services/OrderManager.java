@@ -1,4 +1,4 @@
-package bar.services;
+package restaurant.services;
 
 import java.net.HttpURLConnection;
 import java.util.Collection;
@@ -16,10 +16,10 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import bar.dao.OrderDAO;
-import bar.model.Order;
-import bar.model.Role;
-import bar.model.Status;
+import restaurant.dao.OrderDAO;
+import restaurant.model.Order;
+import restaurant.model.Role;
+import restaurant.model.Status;
 
 @Stateless
 @Path("order")

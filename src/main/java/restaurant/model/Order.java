@@ -1,4 +1,4 @@
-package bar.model;
+package restaurant.model;
 
 import java.io.Serializable;
 import java.util.Date;

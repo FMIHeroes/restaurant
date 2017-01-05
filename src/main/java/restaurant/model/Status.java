@@ -1,4 +1,4 @@
-package bar.model;
+package restaurant.model;
 
 public enum Status {
 	WAITING,

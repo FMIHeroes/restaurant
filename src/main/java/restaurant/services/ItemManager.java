@@ -1,4 +1,4 @@
-package bar.services;
+package restaurant.services;
 
 import java.net.HttpURLConnection;
 import java.util.Collection;
@@ -12,9 +12,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import bar.dao.ItemDAO;
-import bar.model.Item;
-import bar.model.Role;
+import restaurant.dao.ItemDAO;
+import restaurant.model.Item;
+import restaurant.model.Role;
 
 @Stateless
 @Path("item")

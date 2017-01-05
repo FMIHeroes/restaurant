@@ -1,4 +1,4 @@
-package bar.dao;
+package restaurant.dao;
 
 import java.util.Collection;
 import javax.ejb.Singleton;
@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import bar.model.Item;
+import restaurant.model.Item;
 
 @Singleton
 public class ItemDAO {

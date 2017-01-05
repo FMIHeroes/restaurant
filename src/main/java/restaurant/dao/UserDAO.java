@@ -1,4 +1,4 @@
-package bar.dao;
+package restaurant.dao;
 
 import java.security.MessageDigest;
 
@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import bar.model.User;
+import restaurant.model.User;
 
 @Singleton
 public class UserDAO {

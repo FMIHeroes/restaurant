@@ -1,4 +1,4 @@
-package bar.model;
+package restaurant.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;

@@ -1,4 +1,4 @@
-package bar.utils;
+package restaurant.utils;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -9,13 +9,13 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import bar.dao.ItemDAO;
-import bar.dao.OrderDAO;
-import bar.dao.UserDAO;
-import bar.model.Item;
-import bar.model.Order;
-import bar.model.Role;
-import bar.model.User;
+import restaurant.dao.ItemDAO;
+import restaurant.dao.OrderDAO;
+import restaurant.dao.UserDAO;
+import restaurant.model.Item;
+import restaurant.model.Order;
+import restaurant.model.Role;
+import restaurant.model.User;
 
 @Stateless
 public class DatabaseUtils {

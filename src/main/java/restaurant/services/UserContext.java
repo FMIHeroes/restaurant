@@ -1,11 +1,11 @@
-package bar.services;
+package restaurant.services;
 
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
 
-import bar.model.Role;
-import bar.model.User;
+import restaurant.model.Role;
+import restaurant.model.User;
 
 @SessionScoped
 public class UserContext implements Serializable {

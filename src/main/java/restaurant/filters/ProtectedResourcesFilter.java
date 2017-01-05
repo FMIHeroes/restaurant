@@ -1,4 +1,4 @@
-package bar.filters;
+package restaurant.filters;
 
 import java.io.IOException;
 
@@ -13,8 +13,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bar.model.User;
-import bar.services.UserContext;
+import restaurant.model.User;
+import restaurant.services.UserContext;
 
 @WebFilter("/rest/book/borrow")
 public class ProtectedResourcesFilter implements Filter {
