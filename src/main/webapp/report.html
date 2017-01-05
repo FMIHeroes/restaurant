@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Report</title>
+
+<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript">
+
+isUserAuthenticated = false;
+
+$(document).ready(function() {
+	$.ajax({
+		url : 'rest/user/authenticated',
+		type : "GET",
+		dataType : "json",
+		statusCode : {
+			200 : function() {
+				
+				isUserAuthenticated = true;
+			},
+			404 : function() {
+				window.location.replace("login.html");
+				
+			}
+		}
+	});
+});
+
+
+function get_report() {
+	
+	    var formUrl = $("#report_form").attr("action");
+	   
+	    var begdate = $("#begdate")[0].value;
+	    var enddate = $("#enddate")[0].value;
+	  
+	   if (begdate=="" || enddate=="") {alert("Please specify dates"); return;}
+	   
+       	var data={
+       			
+       			dateContainer : { begDate : begdate,
+       								endDate : enddate
+       							}
+       		
+       	};
+	  
+	    
+		$.ajax({
+		   url: 'rest/report',
+		   type: "POST",
+		   contentType: "application/json;charset=UTF-8",
+		   data: JSON.stringify(data)
+		})
+		.success(function(data) {
+			//document.write(data);
+			$("#report_form").attr("action", "report.html");
+			$("#total").text(data);
+		})
+		.fail(function(data) {
+			$("#report_form").attr("action", "report.html");
+		    alert("fail");
+
+		})
+		
+	}
+	
+	
+
+</script>
+</head>
+<body>
+	
+<h1 align="center">
+		<b>REPORT</b>
+	</h1>
+
+	<div align="center" class="report_menu">
+	
+	<form id="report_form" role="form" method="post">
+	 
+	 <label for="begdate"> from </label>
+	 <input type="date" id="begdate">
+	  <label for="enddate"> to </label>
+	 <input type="date" id="enddate">
+	 
+	 
+	
+	<div align="center">
+	<button type="reset" class="report">Reset</button>
+	<button type="button" onclick="get_report()" class="report">Submit</button>
+	</div>
+	
+	<div> 
+	
+	 <label for="total"> total : </label> 
+	 <span id="total"> </span>     
+	
+	</div>
+	
+	
+	</form>
+	</div>
+	
+	
+		
+
+
+
+</body>
+</html>

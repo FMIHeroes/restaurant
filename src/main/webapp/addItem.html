@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Item</title>
+<link rel="stylesheet" type="text/css" href="styles/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="styles/bar.css" />
+<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript">
+	isUserAuthenticated = false;
+	
+	$(document).ready(function() {
+		$.ajax({
+			url : 'rest/user/authenticated',
+			type : "GET",
+			dataType : "json",
+			statusCode : {
+				200 : function() {
+					$(".login_register").hide();
+					isUserAuthenticated = true;
+				},
+				404 : function() {
+					window.location.replace("login.html");
+					
+				}
+			}
+		});
+		
+		$.ajax({
+			url : 'rest/user/current',
+			type : "GET",
+			dataType : "text"
+		}).always(function(data) {
+			if (typeof data != 'undefined') {
+				$("#user-holder").text(data);
+			} else {
+				$(".welcome-greeting").hide();
+			}
+		});
+	});
+	
+	function addItem() {
+		var formUrl = $("#item_adding_form").attr("action");
+		var itemName = $("#itemName")[0].value;
+		var price = $("#price")[0].value;
+		var type = $("#type")[0].value;
+		var description = $("#description")[0].value;
+
+		if (itemName == "" || price == "" || type == "" || description == "") {
+			alert("Please fill every section!");
+			return;
+		}
+
+		var data = {
+			item : {
+				itemName : itemName,
+				price : price,
+				type : type,
+				description : description
+			}
+		}
+
+		console.log(data);
+		$.ajax({
+			url : 'rest/item',
+			type : "POST",
+			contentType : "application/json;charset=UTF-8",
+			data : JSON.stringify(data),
+			statusCode : {
+				401 : function() {
+					alert("You are not AUTHORIZED to make such request!");
+				}
+			}
+		}).success(function(data) {
+			$("#item_adding_form").attr("action", "addItem.html");
+			$("#item_adding_form").submit();
+			alert("success");
+		}).fail(function(data) {
+			$("#item_adding_form").attr("action", "addItem.html");
+		});
+	}
+
+	function logout() {
+		$.ajax({
+			url : 'rest/user/logout',
+			type : "GET",
+			dataType : "text"
+		}).always(function(data) {
+			window.location.replace("login.html");
+		});
+	}
+
+</script>
+</head>
+<body>
+	<div align="left">
+		<h2>
+			<a href="index.html">Simple Bar Management</a>
+		</h2>
+	</div>
+	<h2 align="center">
+		<b>ITEM ADDING FORM</b>
+	</h2>
+
+	<div class="logout">
+		<a onclick="logout()"> Logout </a>
+	</div> 
+ 	
+	<div class="item_order">
+		<a href="addingOrder.html" class="add_order_form">Add Order</a>
+	</div>
+	
+	<div class="login_register">
+			 <a href="register.html" class="register_form"> Register </a>
+		</div>
+
+	<form id="item_adding_form" class="add_item_form" role="form" method="post">
+		<div class="form-group">
+			<label for="itemName">Item name:</label> <input type="text"
+				class="form-control" name="itemName" id="itemName" value="">
+		</div>
+		<div class="form-group">
+			<label for="price">Price:</label> <input type="text"
+				class="form-control" name="price" id="price" value="">
+		</div>
+		<div class="form-group">
+			<label for="type">Type:</label> <input type="text"
+				class="form-control" name="type" id="type" value="">
+		</div>
+		<div class="form-group">
+			<label for="description">Description:</label> <input type="text"
+				class="form-control" name="description" id="description" value="">
+		</div>
+		
+		
+
+		<button type="reset" class="btn btn-default" id="reset_add_item">Reset</button>
+		<button type="button" onclick="addItem()" class="btn btn-default">Submit</button>
+	</form>
+	<div class="logout">
+		<a href="login.html" onclick="logout()"> Logout </a>
+	</div>
+</body>
+</html>

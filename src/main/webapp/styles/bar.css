@@ -1,0 +1,87 @@
+.buttonAccept {
+	background-color: #4CAF50;
+}
+.buttonComplete {
+	background-color: #21ABCD;
+}
+.slide_button{
+	display: block;
+	width : 100px;
+}
+.table_div {
+	display: none;
+}
+.table_with_orders_div {
+	display: block;
+	width: 50%;
+	float : left;
+}
+.item_order{
+	position: absolute;
+	top: 30px;
+	right: 210px;
+}
+.login_register {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+}
+.logout {
+	position: absolute;
+	top: 30px;
+	right:30px;
+}
+.login_form {
+	margin-right: 50px;
+}
+.add_order_form{
+	margin-right: 50px;
+}
+.add_item_form{
+	margin-right: 50px;
+}
+.welcome-greeting {
+	position: absolute;
+	top: 30px;
+	left:30px;
+}
+#order_form {
+	display: block;
+	width: 50%;
+	margin-top: 3%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#register_form {
+	display: block;
+	width: 50%;
+	margin-top: 3%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+#item_adding_form {
+	display: block;
+	width: 50%;
+	margin-top: 3%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+#login_form {
+	display: block;
+	width: 50%;
+	margin-top: 3%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#report_form {
+	display: block;
+	width: 50%;
+	margin-top: 3%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+
+
